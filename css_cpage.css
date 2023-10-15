@@ -1,0 +1,32 @@
+html {
+    background-color: #DACEBA;
+    font-family: cursive;
+    }
+
+body {
+        background-color: #ffff;
+        margin: 0px;
+    }
+
+nav {
+        margin: 0px;
+        font-size: 17px;
+    }
+
+nav ul {
+        background-color: #DACEBA;
+        text-align: left;
+        padding: 21px 4px;
+    
+    }
+    
+nav li {
+        display: inline
+    }
+    
+footer {
+    background: #DACEBA;
+}
+#rights{
+    font-size: smaller;
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css_suggestions.css">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+<h1> Suggest my next read </h1>
+
+<form action="cpage.html">
+    <label for = "bname"> Book Title </label><br>  
+    <input type = "text" id = "bname" name = "bname" placeholder = "The Great Gatsby">
+    <br>
+<br>
+    <label for = "bdate"> Date of Publishment </label><br>  
+    <input type = "date" id = "bdate" name = "bdate">
+    <br>
+<br>
+    <label for = "btype"> Fiction </label>
+    <input type = "radio" id = "btype" name = "btype" value = "Fiction">
+    <label for = "btype2"> Non-Fiction </label>
+    <input type = "radio" id = "btype2" name = "btype" value = "Non-Fiction">
+    <br>
+
+    <br> <label for="colors">Cover Color:</label><br>
+    <input list="color-list" id="colors" name="colors" placeholder="White" />
+
+    <datalist id="color-list">
+     <option value="Red"></option>
+    <option value="Green"></option>
+    <option value="Black"></option>
+    <option value="White"></option>
+    <option value="Blue"></option>
+    <option value="Yellow"></option>
+    <option value="Grey"></option>
+    <option value="Pink"></option>
+    </datalist>
+<br>  <br>
+Book Genre(s): <br>
+ 
+    <input type="checkbox" id="horror" name="horror">
+    <label for="horror"> Horror</label><br>
+    <input type="checkbox" id="romance" name="romance">
+    <label for="romance"> Romance</label><br>
+    <input type="checkbox" id="fantasy" name="fantasy">
+    <label for="fantasy"> Fantasy</label><br>
+    <input type="checkbox" id="thriller" name="thriller">
+    <label for="thriller"> Thriller</label><br>
+    <input type="checkbox" id="hisfic" name="hisfic">
+    <label for="hisfic"> Historical Fiction</label><br>
+    <input type="checkbox" id="comedy" name="comedy">
+    <label for="comedy"> Comedy</label><br><br>
+    <input type="submit" value="Submit Recommendation">
+
+    <canvas id="canvas"> </canvas>
+
+</form>
+
+
+</body>
+
+<footer>
+    <h3> Contact Info: </h3>
+    Email: khalidtantawi8@gmail.com <br> Phone: +966560958518 <br>
+   
+   <h3> Links </h3>
+   <a href="details.html">Details</a> <br>
+   <a href="contactUs.html">Contact Us</a> <br>
+   <a href="suggestions.html"> Suggestion Form </a> <br>
+ 
+   <p id="rights">Website by: Khaled Tantawi. All rights reserved. </p>
+   
+  </footer>
+
+
+  <script>
+    let canvas = document.querySelector("canvas")
+    let ctx = canvas.getContext('2d')
+    ctx.lineWidth = 2
+    const mapEvents: IMappedEvents = {
+        start: ['mousedown', 'touchstart'],
+        move: ['mousemove', 'touchmove'],
+        end: ['mouseup', 'touchend', 'touchcancel']
+    }
+    let drawing = false;
+
+    function addEventListeners(element: HTMLElement, event: 'start' | 'move' | 'end', fn: (ev?: Event) => void){
+        let evtArray = mapEvents[event]
+        let len = evtArray.length
+        for(let i = 0; i<length; i++){
+            element.addEventListener(evtArray[i], fn, false)
+        }
+    }
+
+    interface IMappedEvents{
+        start: string[]
+        move: string[]
+        end: string[]
+    }
+
+    function getOffset(ev: Event){
+        let x = 0
+        let y = 0
+
+        if(!ev.offsetX || !ev.offsetY){
+            let tev 
+        } else {
+            x = ev.offsetX
+            y = ev.offsetY
+        }
+
+        return{
+            x: ev.offsetX,
+            y: ev.offsetY,
+        }
+    }
+
+    </script>
+</html>

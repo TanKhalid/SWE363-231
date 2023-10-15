@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Khaled's Book Reviews">
+    <meta name="keywords" content="Literature, books, rating">
+    <meta name="author" content="Khaled Tantawi">
+    <link rel="stylesheet" href="css_main.css">
+    <script src="mainscript.js"></script>
+<title> Khaled's Bookshelf </title>
+</head>
+
+
+<body>
+<center>
+  <div class="wrapper" style='display:none'>
+    <div class="popup">
+        <center>
+             <h2>Slideshow Keyboard Navigation: </h2>    
+             <p> <br> Right Arrow Key: Next slide <br> Left Arrow Key: Previous Slide</p>
+            <input type="submit" name="submit" value="OK" onClick="PopUp('hide')" />
+        </center>
+    </div>
+</div>
+</center>
+
+  <div class="preloader"></div>
+  <header>
+    <nav class="webnav">
+      <a href="SWE363.html">Main</a>
+      <a href="details.html">Details</a>
+      <a href="contactUs.html">Contact Me</a>
+      <a href="suggestions.html"> Suggestion Form </a>
+      <a href="SWE363-ar.html"> Arabic Site </a>
+    </nav>
+  </header>
+  <div class="mobile-nav">
+    <label class="hamburger-menu">
+      <input type="checkbox" />
+    </label>
+    <aside class="sidebar">
+    <nav>
+      <ul>
+      <li class = "el1"> <a href="SWE363.html">Main</a></li>
+      <li class = "el2"><a href="details.html">Details</a></li>
+      <li class = "el3"><a href="contactUs.html">Contact Me</a></li>
+      <li class = "el4"><a href="suggestions.html"> Suggestion Form </a></li>
+      <li class = "el5"><a href="SWE363-ar.html"> Arabic Site </a></li>
+    </nav>
+  </div>
+  </aside>
+  
+
+  <!-- Slideshow container -->
+  <div class="slideshow-container">
+
+    <!-- Full-width images with number and caption text -->
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 3</div>
+      <img src="assets/BriefPic.jpg" style="width:100%">
+      <div class = slideTitle> Brief </div>
+      <div class="text">From classics to contemporary, from Agatha Christie's masterclass in who-dunnits to Dostoevsky's russian pieces and Fitzgerald's unmatched literary wit.
+        Welcome to my digital bookshelf where you can read about my personal thoughts, opinions, ratings, and more regarding fiction literature</div>
+    </div>
+  
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 3</div>
+      <img src="assets/History.jpg" style="width:100%">
+      <div class = slideTitle> History </div>
+      <div class="text">My role model and aspiration in this world is and will always be first and foremost, my mother. Reading used to be her hobby as a teenager 
+        before life and the resposibilities of being a mother took all of her time. Years later, her youngest child (myself) would grow to inherit
+        that same passion for reading and literature as she once did. 
+         I have been reading english fiction since I was 10 years old and I almost immedietly fell in love with it. It has grown from a hobby into 
+         an integral part of my identity and my land of comfort.</div>
+    </div>
+  
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 3</div>
+      <img src="assets/preferences.jpg" style="width:100%">
+      <div class = slideTitle> Preferences </div>
+      <div class="text">I try to broaden and expand my taste and range in books, but I mostly tend to gravitate towards Historical Fiction, Horror,
+        and classic works. </div>
+    </div>
+  
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+  
+  <!-- The dots/circles -->
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+
+
+
+<div class="flex-container">
+
+  <div class="flex-child col1">
+      <h1> Favorite Books </h1>
+      <table border="2">
+        <tbody>
+        <thead>
+          <th>Rank</th>
+          <th>Book</th>
+          <th>Author</th>
+          <th>Date</th>
+        </thead>
+        <tr>
+            <td class = "top">1</td>
+            <td class = "top">If We Were Villians</td>
+            <td class = "top">M.L.Rio</td>
+            <td class = "top">2017</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>The Great Gatsby</td>
+          <td>F.Scott Fitzgerald</td>
+          <td>1925</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>The Song of Achilles</td>
+          <td>Madeline Miller</td>
+          <td>2011</td>
+        </tr>
+            </tbody>
+
+      </table>
+      
+      <div class = "imagesdisplay">
+      
+      </div>
+
+      </div>
+
+  
+  <div class="flex-child col2">
+    <article>
+      <h1> Currently Reading </h1>
+      <figure>
+        <img src="assets/1984.jpg"> 
+        <figcaption> 1984 by George Orwell </figcaption> 
+      </figure>
+    </article>
+  </div>
+  
+</div>
+
+
+
+
+
+</body>
+
+
+<footer>
+  <h3> Contact Info: </h3>
+   Email: khalidtantawi8@gmail.com <br> Phone: +966560958518 <br>
+  
+  <h3> Links </h3>
+  <a href="details.html">Details</a> <br>
+  <a href="contactUs.html">Contact Us</a> <br>
+  <a href="suggestions.html"> Suggestion Form </a> <br>
+
+  <p id="rights">Website by: KhaledTantawi. All rights reserved. </p>
+  
+</footer>
+
+
+
+<script>
+
+/////////////////////////////////
+// JS 2 EXERCISE 1 STARTS HERE //
+/////////////////////////////////
+  images = 
+[
+    {
+        src:"https://upload.wikimedia.org/wikipedia/en/7/74/If_We_Were_Villains.jpg",
+        title:"If We Were Villians Cover",
+        brief:"A novel about a group of seven theatre students at an elite school who seem friendly at first, until one of them is found dead.",
+        link:"https://www.amazon.com/If-We-Were-Villains-Novel/dp/1250095298/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=1696691326&sr=8-1",
+    },
+    {
+        src:"https://upload.wikimedia.org/wikipedia/commons/7/7a/The_Great_Gatsby_Cover_1925_Retouched.jpg",
+        title:"The Great Gatsby Cover",
+        brief:"A novel which tells the tragic story of Jay Gatsby, a self-made millionaire, and his pursuit of Daisy Buchanan, a wealthy young woman whom he loved in his youth.",
+        link:"https://www.amazon.com/Great-Gatsby-Original-1925-Footnotes/dp/1735901628/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=1696691392&sr=1-2",
+    },
+    {
+        src:"https://upload.wikimedia.org/wikipedia/en/1/1e/TheSongofAchilles.png",
+        title:"The Song of Achilles Cover",
+        brief:"Set during the Greek Heroic Age, ths novel is a retelling of the Trojan War as told from the perspective of Patroclus.",
+        link:"https://www.amazon.com/Song-Achilles-Novel-Madeline-Miller/dp/0062060627/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=1696691413&sr=1-1",
+    }
+    
+]
+
+let spot = document.querySelector(".imagesdisplay")
+for(let k = 0; k<images.length; k++){ 
+  let divider = document.createElement("div")
+  divider.classList.add("imgDiv")
+  let picture = document.createElement("img")
+  picture.src = images[k].src
+  picture.classList.add("favimages")
+  divider.appendChild(picture)
+  let title = document.createElement("h3")
+  title.innerText = images[k].title
+  divider.appendChild(title)
+  let desc = document.createElement("p")
+  desc.innerText = images[k].brief
+  divider.appendChild(desc)
+  spot.appendChild(divider)
+  
+}
+
+
+/////////////////////////////////
+// JS 2 EXERCISE 2 STARTS HERE //
+/////////////////////////////////
+
+
+  let page = document.querySelector("html")
+page.addEventListener('keydown', function(e){
+  let key = e.key
+  switch (key) {
+  case "ArrowLeft":
+      plusSlides(-1)
+      break;
+  case "ArrowRight":
+      plusSlides(1)
+      break;
+  case "ArrowUp":
+
+      break;
+  case "ArrowDown":
+
+      break;
+}
+})
+
+function PopUp(hideOrshow) {
+    if (hideOrshow == 'hide') document.getElementsByClassName('wrapper')[0].style.display = "none";
+    else document.getElementsByClassName('wrapper')[0].removeAttribute('style');
+}
+window.onload = function () {
+    setTimeout(function () {
+        PopUp('show');
+    }, 2000);
+}
+
+
+
+  </script>
+</html>
