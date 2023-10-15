@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardsMatch Mini-game</title>
+
+    <style>
+        h1{
+            font-family: fantasy;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .card{
+            font-family: fantasy;
+            font-size: xx-large;
+            font-weight: bold;
+            color:black;
+            background-color: rgb(255, 255, 255);
+            width: 130px;
+            height: 180px;
+            border: 2px solid rgb(255, 0, 0);
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .cardFlipped{
+            font-family: fantasy;
+            font-size: xx-large;
+            font-weight: bold;
+            color:rgb(255, 0, 0);
+            background-color: rgb(255, 0, 0);
+            width: 130px;
+            height: 180px;
+            border: 2px solid rgb(255, 0, 0);
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+        
+        .cardCorrect{
+            font-family: fantasy;
+            font-size: xx-large;
+            font-weight: bold;
+            color:black;
+            background-color: rgb(255, 255, 255);
+            width: 130px;
+            height: 180px;
+            border: 2px solid rgb(255, 0, 0);
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+        
+        .card:hover, .cardFlipped:hover{
+            cursor:pointer;
+        }
+        .scoreBox{
+            font-family: fantasy;
+            font-size: xx-large;
+            color:rgb(5, 163, 39);
+            background-color: rgb(255, 255, 255);
+            width: 260px;
+            height: 180px;
+            border: 2px solid rgb(5, 163, 39);
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 20px 20px 65px;
+        }
+        .score{
+            color:rgb(5, 163, 39);
+            margin: 15px;
+        }
+        button{
+            width: 200px;
+            height: 100px;
+            font-family: fantasy;
+            font-size: x-large;
+        }
+
+
+
+    </style>
+
+</head>
+
+<body>
+    <h1> Card Matcher! </h1>
+
+    <div class = row> 
+
+    <div class = "cardFlipped"> 9 </div>
+    <div class = "cardFlipped"> A </div>
+    <div class = "cardFlipped"> Q </div>
+    <div class = "cardFlipped"> 3 </div>
+    <div class = "cardFlipped"> 7 </div>
+    <div class = "cardFlipped"> J </div>
+    <div class = "cardFlipped"> 4 </div>
+
+</div>
+    <div class = row> 
+    <div class = "cardFlipped"> 6 </div>
+    <div class = "cardFlipped"> K </div>
+    <div class = "cardFlipped"> 2 </div>
+    <div class = "cardFlipped"> 9 </div>
+    <div class = "cardFlipped"> 5 </div>
+    <div class = "cardFlipped"> 10 </div>
+    <div class = "cardFlipped"> A </div>
+
+</div>
+    <div class = row> 
+
+    <div class = "cardFlipped"> 2 </div>
+    <div class = "cardFlipped"> 8 </div>
+    <div class = "cardFlipped"> J </div>
+    <div class = "cardFlipped"> 4 </div>
+    <div class = "cardFlipped"> 10 </div>
+    <div class = "cardFlipped"> 3 </div>
+    <div class = "cardFlipped"> 6 </div>
+
+</div>
+<div class = row> 
+    <div class = "cardFlipped"> 7 </div>
+    <div class = "cardFlipped"> K </div>
+    <div class = "cardFlipped"> Q </div>
+    <div class = "cardFlipped"> 8 </div>
+    <div class = "cardFlipped"> 5 </div>
+    <div class = "scoreBox"> Score: <span class = "score"> 0 </span></div>
+</div>
+
+<button onclick="resetGame()"> Reset </button>
+
+
+        <script>
+
+            let choice = 0
+            let score = 0
+            // Adding event listeners to every card
+            let cards = document.getElementsByClassName("cardFlipped")
+            for(let i = 0; i<cards.length; i++){
+                cards[i].addEventListener('click', function(event){
+                    if(event.target.className === "cardFlipped"){
+                        
+                    if(choice === 0){
+                    // selecting first card
+                    choice++
+                    let selected = event.target
+                    selected.className = "card"
+
+                }
+                else{
+                    // selecting second card 
+                    choice = 0
+                    let selected = event.target
+                    selected.className = "card"
+
+                    // the two open cards
+                    let val1 = document.getElementsByClassName("card")[0]
+                    let val2 = document.getElementsByClassName("card")[1]
+
+                    if (val1.innerText === val2.innerText){
+                        val1.className = "cardCorrect"
+                        val2.className = "cardCorrect"
+                        score += 100
+                    }
+                    else{
+                        val1.className = "cardFlipped"
+                        val2.className = "cardFlipped"
+                        if(score !== 0){
+                        score -= 10
+                        }
+                    }
+                    for(let j = 0; j<document.getElementsByClassName("card").length; j++){
+                        document.getElementsByClassName("card")[j].className = "cardFlipped"
+                    }
+
+                }
+                document.querySelector(".score").innerText = score
+            }
+
+                })
+            }
+
+            function resetGame(){
+                choice = 0
+                score = 0
+                document.querySelector(".score").innerText = score
+                let rowss = document.querySelectorAll(".row")
+                for(let i = 0; i<rowss.length; i++){
+                    cards = rowss[i].children
+                    for(let z = 0; z<cards.length; z++){
+                        if(cards[z].className !== "scoreBox"){
+                        cards[z].className = "cardFlipped"
+                        }
+                    }
+                }
+            }
+
+
+
+        </script>
+</body>
+
+</html>

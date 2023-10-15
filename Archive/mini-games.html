@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .cell{
+            font-family: sans-serif;
+            font-size: larger;
+            font-weight: bolder;
+            background-color: beige;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cell:hover {
+            background-color: blanchedalmond;
+        }
+
+        .row {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="turn">
+        Now it's is <span>X</span> turn
+    </h1>
+    <!-- Board -->
+    <div class="board">
+        <div class="row">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <script>
+
+            // decided which turn is it
+            let turn = "X"
+            let gameEnded = false
+            let winner = false
+
+            // when we click on a cell add the letter 
+            let board = document.getElementsByClassName("board")[0]
+            board.addEventListener("click", cellClicked)
+
+            function cellClicked(event) {
+                let cell = event.target
+                if (cell.innerText === ""){
+                cell.innerText = turn
+
+                    //  win conditions go here
+
+                        let rows = document.getElementsByClassName("row")
+
+                        // row-based win
+
+                        for (let t = 0; t<3; t++){
+                        if((rows[t].children[0].innerText === turn) && (rows[t].children[1].innerText === turn) && (rows[t].children[2].innerText === turn)){
+                            gameEnded = true
+                            winner = true
+                        }
+                    }
+
+                       // column-based win
+                        for(let j = 0; j<3; j++){
+                            // iterate over columns
+                            if(
+                                ((rows[0].children[j].innerText === turn) && (rows[1].children[j].innerText === turn) && (rows[2].children[j].innerText === turn)) 
+                            ){
+                                gameEnded = true
+                                winner = true
+                            }
+                            }
+                        
+
+                        // diagnoal win
+
+                            if(
+                                ((rows[0].children[0].innerText === turn) && (rows[1].children[1].innerText === turn) && (rows[2].children[2].innerText === turn))
+                                || ((rows[0].children[2].innerText === turn) && (rows[1].children[1].innerText === turn) && (rows[2].children[0].innerText === turn))
+                            ){
+                                gameEnded = true
+                                winner = true
+                            }
+
+
+                        }
+                        
+
+                    //
+                
+                if (gameEnded && winner) {
+                    // HW 
+                    turnLetter = document.querySelector("#turn")
+                    turnLetter.innerText = turn + " Wins the game!"
+                } else {
+                    // change turn
+                    turn = turn === "X" ? "O" : "X"
+
+                    //change title
+                    turnLetter = document.querySelector("#turn span")
+                    turnLetter.innerText = turn
+                }
+
+                let cells = document.querySelectorAll(".cell")
+                let tie = true
+                for(let k = 0; k<9; k++){
+                    if(cells[k].innerText === ""){
+                    tie = false
+                }
+                }
+                if (!winner && tie){
+  
+                    turnLetter = document.querySelector("#turn")
+                    turnLetter.innerText = "Draw"
+                }
+
+
+                
+            }
+
+            function resetFunc(turn, state, winner){
+                turn = "X"
+                state = false
+                winner = false
+                let cells = document.querySelectorAll(".cell")
+                document.querySelector("#turn").innerText = ""
+                for(let k = 0; k<9; k++){
+                    cells[k].innerText = ""
+            }
+        }
+            
+        </script>
+    </div>
+
+        <button onclick="resetFunc(turn, gameEnded, winner)"> Reset </button>
+</body>
+
+</html>
