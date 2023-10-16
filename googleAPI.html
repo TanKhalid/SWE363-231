@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google API page</title>
+</head>
+<nav>
+    <a href="SWE363.html"> Back to Main Page </a>
+    </nav>
+
+<body> 
+    <h1> Google Library For Thriller Books </h1>
+
+
+</body>
+
+
+<script>
+getData()
+async function getData() {
+  let response = await fetch("https://www.googleapis.com/books/v1/volumes?q=thriller&projection=lite&orderBy=newest&printType=books")
+  let data = await response.json()
+  let items = data.items
+  console.log(items)
+  construct(items)
+
+}   
+    function construct(itemlist){
+        let body = document.querySelector("body")
+        for(let i = 0; i<itemlist.length; i++){
+            let itm = itemlist[i]
+            let outerDiv = document.createElement("div")
+            outerDiv.classList.add("outer")
+            let innerDiv = document.createElement("div")
+            innerDiv.classList.add("inner")
+
+            let title = document.createElement("h2")
+            title.innerText = (i+1)+ ". " + itm.volumeInfo.title + " (" + itm.volumeInfo.authors[0]+ ")"
+
+            let desc = document.createElement("p")
+            desc.innerText = itm.volumeInfo.description
+
+            innerDiv.appendChild(title)
+            innerDiv.appendChild(desc)
+
+            let cover = document.createElement("img")
+            cover.src = itm.volumeInfo.imageLinks.smallThumbnail
+
+            outerDiv.appendChild(innerDiv)
+            outerDiv.appendChild(cover)
+            body.appendChild(outerDiv)
+        }
+    }
+    </script>
+
+    <style>
+
+
+html {
+    background-color: #DACEBA;
+    font-family: cursive;
+    }
+
+body {
+        background-color: #ffff;
+        margin: 0px;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+    }
+
+    h1{
+        text-align:center;
+        color:#607254
+    }
+
+.outer{
+    display: flex;
+    flex-direction: row;
+    margin:10px;
+    border: dotted black ;
+    padding:0px;
+    background-color: #DACEBA;
+}
+
+img{
+    margin: 0px;
+}
+
+.inner{
+    display:flex;
+    flex-direction: column;
+    margin-top:0px;
+}
+
+nav {
+    display: inline;
+    padding: 8px;
+    margin: 0px;
+    font-size: 17px;
+    height: 35px;
+    background-color: #DACEBA;
+  }
+
+  nav a, nav a:link, nav a:visited {
+    color:#607254;
+    margin-right: 10px;
+    padding: 0px;
+    text-decoration: none;
+    decoration: none; 
+    font-weight: bolder;
+}
+
+nav a:hover{
+    color:#526148;
+}
+    
+footer {
+    background: #DACEBA;
+}
+#rights{
+    font-size: smaller;
+}
+
+h2{
+    color:#FFF;
+    background-color:#526148;
+    text-align: center;
+    padding-top: 0px;
+    font-weight: normal;
+}
+
+        </style>
+</html>
