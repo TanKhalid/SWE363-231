@@ -93,16 +93,15 @@ let x, y, x2, y2
             canvas.addEventListener("mouseup", function(ev){
             x2 = ev.clientX - canvas.getBoundingClientRect().left
             y2 = ev.clientY - canvas.getBoundingClientRect().top
-            console.log(x2)
+
              })
 
             x = e.clientX - canvas.getBoundingClientRect().left
             y = e.clientY - canvas.getBoundingClientRect().top
-            console.log(x)
         })
 
         ctx.strokeStyle = "black"
-        ctx.lineWidth = 15
+        ctx.lineWidth = 8
 
         ctx.beginPath()
         ctx.moveTo(x, y)
