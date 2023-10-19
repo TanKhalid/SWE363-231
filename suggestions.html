@@ -55,10 +55,11 @@ Book Genre(s): <br>
     <label for="hisfic"> Historical Fiction</label><br>
     <input type="checkbox" id="comedy" name="comedy">
     <label for="comedy"> Comedy</label><br><br>
+
+
+    <canvas id="canvas" height = "200" width = "400"> </canvas>
+
     <input type="submit" value="Submit Recommendation">
-
-    <canvas id="canvas"> </canvas>
-
 </form>
 
 
@@ -79,46 +80,44 @@ Book Genre(s): <br>
 
 
   <script>
-    let canvas = document.querySelector("canvas")
-    let ctx = canvas.getContext('2d')
-    ctx.lineWidth = 2
-    const mapEvents: IMappedEvents = {
-        start: ['mousedown', 'touchstart'],
-        move: ['mousemove', 'touchmove'],
-        end: ['mouseup', 'touchend', 'touchcancel']
+let x, y, x2, y2
+
+    draw()
+
+    function draw(){
+
+        let canvas = document.querySelector("canvas")
+        let ctx = canvas.getContext("2d")
+        canvas.addEventListener("mousedown", function(e){
+
+            canvas.addEventListener("mouseup", function(ev){
+            x2 = ev.clientX - canvas.getBoundingClientRect().left
+            y2 = ev.clientY - canvas.getBoundingClientRect().top
+            console.log(x2)
+             })
+
+            x = e.clientX - canvas.getBoundingClientRect().left
+            y = e.clientY - canvas.getBoundingClientRect().top
+            console.log(x)
+        })
+
+        ctx.strokeStyle = "black"
+        ctx.lineWidth = 15
+
+        ctx.beginPath()
+        ctx.moveTo(x, y)
+        ctx.lineTo(x2, y2)
+        ctx.stroke()
+        window.requestAnimationFrame(draw)
+        
     }
-    let drawing = false;
+         
 
-    function addEventListeners(element: HTMLElement, event: 'start' | 'move' | 'end', fn: (ev?: Event) => void){
-        let evtArray = mapEvents[event]
-        let len = evtArray.length
-        for(let i = 0; i<length; i++){
-            element.addEventListener(evtArray[i], fn, false)
-        }
-    }
 
-    interface IMappedEvents{
-        start: string[]
-        move: string[]
-        end: string[]
-    }
 
-    function getOffset(ev: Event){
-        let x = 0
-        let y = 0
 
-        if(!ev.offsetX || !ev.offsetY){
-            let tev 
-        } else {
-            x = ev.offsetX
-            y = ev.offsetY
-        }
-
-        return{
-            x: ev.offsetX,
-            y: ev.offsetY,
-        }
-    }
-
+    function degToRad(degrees) {
+   return (degrees * Math.PI) / 180;
+}
     </script>
 </html>
