@@ -13,7 +13,6 @@ showSlides(slideIndex);
 
 
 
-// JS 2 EXERCISE 1 IS WRITTEN AT THE END OF SWS363.HTML //
 
 
 function plusSlides(n) {
@@ -44,6 +43,4 @@ function showSlides(n) {
 }
 
 
-
-// JS 2 EXERCISE 1 IS WRITTEN AT THE END OF SWS363.HTML //
 

@@ -109,24 +109,28 @@
           <th>Book</th>
           <th>Author</th>
           <th>Date</th>
+          <th>Age</th>
         </thead>
         <tr>
             <td class = "top">1</td>
-            <td class = "top">If We Were Villians</td>
-            <td class = "top">M.L.Rio</td>
-            <td class = "top">2017</td>
+            <td class = "top"></td>
+            <td class = "top"></td>
+            <td class = "top"></td>
+            <td></td>
         </tr>
         <tr>
           <td>2</td>
-          <td>The Great Gatsby</td>
-          <td>F.Scott Fitzgerald</td>
-          <td>1925</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
         <tr>
           <td>3</td>
-          <td>The Song of Achilles</td>
-          <td>Madeline Miller</td>
-          <td>2011</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
         </tr>
             </tbody>
 
@@ -175,9 +179,33 @@
 
 <script>
 
-/////////////////////////////////
-// JS 2 EXERCISE 1 STARTS HERE //
-/////////////////////////////////
+
+class Book{
+    constructor(name, author, date){
+      this.name = name
+      this.author = author
+      this.date = date
+    }
+
+    age(){
+      return 2023 - this.date
+    }
+  }
+
+  const books = [
+    new Book("If We Were Villians", "M.L.Rio", 2017 ),
+    new Book("The Great Gatsby", "F.Scott Fitzgerald", 1925 ),
+    new Book("The Song of Achilles", "Madeline Miller", 2011 )
+  ]
+
+  for(let i = 0; i<3; i++){
+    let row = document.querySelectorAll("tr")[i+1]
+    row.children[1].innerText = books[i].name
+    row.children[2].innerText = books[i].author
+    row.children[3].innerText = books[i].date
+    row.children[4].innerText = books[i].age() + " Years Old"
+  }
+
   images = 
 [
     {
@@ -218,11 +246,6 @@ for(let k = 0; k<images.length; k++){
   spot.appendChild(divider)
   
 }
-
-
-/////////////////////////////////
-// JS 2 EXERCISE 2 STARTS HERE //
-/////////////////////////////////
 
 
   let page = document.querySelector("html")
