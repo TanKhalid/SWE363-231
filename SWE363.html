@@ -247,10 +247,8 @@ for(let k = 0; k<images.length; k++){
   
 }
 
-
-  let page = document.querySelector("html")
-page.addEventListener('keydown', function(e){
-  let key = e.key
+  const func1 = function(e){
+    let key = e.key
   switch (key) {
   case "ArrowLeft":
       plusSlides(-1)
@@ -265,7 +263,10 @@ page.addEventListener('keydown', function(e){
 
       break;
 }
-})
+  }
+  
+  let page = document.querySelector("html")
+  page.addEventListener('keydown', func1)
 
 function PopUp(hideOrshow) {
     if (hideOrshow == 'hide') document.getElementsByClassName('wrapper')[0].style.display = "none";

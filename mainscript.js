@@ -1,10 +1,10 @@
 
 window.addEventListener('load', () => {
-  const preload = document.querySelector('.preloader');
+  const preload = document.querySelector('.preloader')
   setTimeout( function() {
-      preload.classList.add('preloader-finish');
-  }, 2000 );
-});
+      preload.classList.add('preloader-finish')
+  }, 2000 )
+})
 
 
 let slideIndex = 1;
