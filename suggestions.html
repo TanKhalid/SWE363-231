@@ -82,19 +82,15 @@ Book Genre(s): <br>
   <script>
 let x, y, x2, y2
 
-    draw()
+    (()=>{draw()})()
 
     function draw(){
         const func2 = function(e){
-            canvas.addEventListener("mouseup", func3)
+            canvas.addEventListener("mouseup", ev => {x2 = ev.clientX - canvas.getBoundingClientRect().left
+                                                     y2 = ev.clientY - canvas.getBoundingClientRect().top
+                                                    })
             x = e.clientX - canvas.getBoundingClientRect().left
             y = e.clientY - canvas.getBoundingClientRect().top
-        }
-
-        const func3 = function(ev){
-            x2 = ev.clientX - canvas.getBoundingClientRect().left
-            y2 = ev.clientY - canvas.getBoundingClientRect().top
-
         }
 
         let canvas = document.querySelector("canvas")
