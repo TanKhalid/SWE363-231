@@ -110,13 +110,15 @@
           <th>Author</th>
           <th>Date</th>
           <th>Age</th>
+          <th>Length</th>
         </thead>
         <tr>
             <td class = "top">1</td>
             <td class = "top"></td>
             <td class = "top"></td>
             <td class = "top"></td>
-            <td></td>
+            <td class = "top"></td>
+            <td class = "top"></td>
         </tr>
         <tr>
           <td>2</td>
@@ -124,9 +126,11 @@
           <td></td>
           <td></td>
           <td></td>
+          <td></td>
         </tr>
         <tr>
           <td>3</td>
+          <td></td>
           <td></td>
           <td></td>
           <td></td>
@@ -181,10 +185,11 @@
 
 
 class Book{
-    constructor(name, author, date){
+    constructor(name, author, date, len){
       this.name = name
       this.author = author
       this.date = date
+      this.length = len
     }
 
     age(){
@@ -193,18 +198,30 @@ class Book{
   }
 
   const books = [
-    new Book("If We Were Villians", "M.L.Rio", 2017 ),
-    new Book("The Great Gatsby", "F.Scott Fitzgerald", 1925 ),
-    new Book("The Song of Achilles", "Madeline Miller", 2011 )
+    new Book("If We Were Villians", "M.L.Rio", 2017, 368),
+    new Book("The Great Gatsby", "F.Scott Fitzgerald", 1925, 	208),
+    new Book("The Song of Achilles", "Madeline Miller", 2011, 416)
   ]
+  let z = 0
+  let map1 = books.map((x) => x.length)
 
+  map1 = map1.filter((pages) => pages > 300)
+
+  map1 = map1.map((y) => "Long")
   for(let i = 0; i<3; i++){
     let row = document.querySelectorAll("tr")[i+1]
     row.children[1].innerText = books[i].name
     row.children[2].innerText = books[i].author
     row.children[3].innerText = books[i].date
     row.children[4].innerText = books[i].age() + " Years Old"
+    if(books[i].length > 300){
+    row.children[5].innerText = map1[z++]
+    }
+
   }
+
+
+
 
   images = 
 [
