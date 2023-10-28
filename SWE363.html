@@ -159,9 +159,15 @@
   
 </div>
 
+<div id = "medium_blog_container"> 
+  
+</div>
 
+<div class = "test"> </div>
 
-
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin> </script>  
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src = "medium_post_component.js"> </script>
 
 </body>
 
@@ -202,6 +208,9 @@ class Book{
     new Book("The Great Gatsby", "F.Scott Fitzgerald", 1925, 	208),
     new Book("The Song of Achilles", "Madeline Miller", 2011, 416)
   ]
+  const subject = "TEST"
+  let test  = React.createElement("header", null, React.createElement("h1", null, "React Framework ", subject))
+  document.querySelector(".test").innerText = test
   let z = 0
   let map1 = books.map((x) => x.length)
 
