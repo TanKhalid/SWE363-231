@@ -180,25 +180,6 @@ h2{
   footer {
       background: #DACEBA;
   }
-  .maintab{
-  position:absolute;
-  display: flex;
-  width: 600px;
-  height: 540px;
-  padding: 20px 20px 15px 20px;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.48) 18.75%, rgba(0, 0, 0, 0.00) 30.21%, rgba(0, 0, 0, 0.00) 66.54%, rgba(0, 0, 0, 0.48) 83.82%), url(assets/BriefPic.jpg), lightgray 50% / cover no-repeat;
-  
-  }
-  .maintext{
-  color:rgb(247, 239, 204);
-  position: relative;
-  align-self: stretch;
-  font-feature-settings: 'clig' off, 'liga' off;
-  font-size: 0.6rem;
-  }
   #rights{
       font-size: smaller;
   }
@@ -341,7 +322,7 @@ h2{
     font-size: 1.5rem;
     padding: 8px 12px;
     position: absolute;
-    bottom: 8px;
+    bottom: 5%;
     width: 100%;
     text-align: center;
   }
