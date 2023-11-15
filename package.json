@@ -1,5 +1,16 @@
 {
   "dependencies": {
-    "http-server": "^14.1.1"
-  }
+    "http-server": "^14.1.1",
+    "mongoose": "^8.0.0"
+  },
+  "name": "exercises-(correct-submission-method)",
+  "version": "1.0.0",
+  "main": "mainscript.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
