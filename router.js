@@ -21,6 +21,16 @@ router.get('/suggest', (req, res) => {
      res.status(200).sendFile(path.resolve(__dirname,"./suggestions.html"))
 })
 
+router.get('/googleAPI', (req, res) => {
+    res.status(200).sendFile(path.resolve(__dirname,"./googleAPI.html"))
+})
+
+router.post("/submitComplete", (req, res) => {
+    console.log(req.body)
+    res.status(200).send("Thanks for the Suggestion!");
+  });
+
+
 router.all('*', (req, res)=>{
     res.status(404).send("Resource Not Found :(")
 })
